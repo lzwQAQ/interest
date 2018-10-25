@@ -15,6 +15,51 @@
 
 ## 项目结构
 - 前端interest-web
+.
+├── package.json  项目构建配置
+├── webpack.base.config.js  项目构建配置
+├── webpack.dev.config.js  项目构建配置
+├── webpack.prod.config.js  项目构建配置
+└── src
+    ├── config  其他配置
+    ├── images  图片文件
+    ├── libs  工具方法
+    ├── store  状态管理
+    ├── template  模板文件
+    ├── styles  样式文件
+    ├── app.vue  入口页面
+    ├── axios.js  axios配置
+    ├── main.js  main.js
+    ├── vendors.js  公共库文件
+    ├── router.js  路由配置
+    └── views
+        ├── mobile  mobile版
+        │   ├── card.vue  帖子页
+	│   ├── detail.vue  详情页
+	│   ├── home.vue  主页
+	│   └── index.vue  head+footer
+        ├── sys  后台管理
+        │   ├── interest
+	│   │   ├── interest-create.vue  兴趣新建
+	│   │   ├── interest-delete.vue  兴趣删除
+	│   │   ├── interest-edit.vue  兴趣修改
+	│   │   └── interest-quill-editor.vue  富文本编辑器组件
+	│   ├── banner.vue  轮播管理
+	│   ├── base.vue  head+left list
+	│   ├── card.vue  帖子管理
+	│   ├── email.vue  邮件管理
+	│   ├── menu.vue  菜单管理
+	│   ├── role.vue  角色管理
+	│   ├── user.vue  用户管理
+        │   └── welcome.vue  默认页
+	├── template  PC版
+        │   ├── card.vue  帖子页
+	│   ├── detail.vue  详情页
+	│   ├── home.vue  主页
+	│   └── index.vue  head+footer
+        ├── error404.vue  404页面  
+        ├── login.vue  PC登录页面
+        └── mlogin.vue  mobile登录页面
 1）技术栈
 vue2
 vuex
