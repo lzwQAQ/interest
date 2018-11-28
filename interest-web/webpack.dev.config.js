@@ -19,7 +19,8 @@ module.exports = merge(webpackBaseConfig, {
         proxy:{
             '/interest':
             {
-                target: 'http://localhost:8080',  
+                // target: 'http://localhost:8080',  
+                target:'http://interest-server.iliuqi.top',
                 secure: false  
             }
         },
