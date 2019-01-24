@@ -1,11 +1,11 @@
 server:
-  port: 8080
+  port: 8086
   servlet:
     context-path: /interest
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    #本地数据库
+    #本地数据库47.95.193.234
     url: jdbc:mysql://localhost:3306/interest?useUnicode=true&characterEncoding=UTF-8&amp;useSSL=false&amp;jdbcCompliantTruncation=false&amp;zeroDateTimeBehavior=convertToNull
     username: root
     password: zai@1234
@@ -26,8 +26,9 @@ mybatis:
   mapper-locations: classpath:mybatis/mapper/*.xml
   type-aliases-package: com.interest.model
 
+#D:/interest/file/log/interest.log
 logging:
-  file: D:/interest/file/log/interest.log
+  file: /var/interest/log/interest.log
   level:
     org.springframework.web: DEBUG
     org.springframework.security: DEBUG
@@ -37,9 +38,9 @@ logging:
 interest:
   properties:
     paths-properties:
-      image: D:/interest/file/image
+      image: /var/tomcat-file/
 #      domain-name: http://www.lovemtt.com/interest
-      domain-name: http://127.0.0.1:8080/interest
+      domain-name: http://127.0.0.1:8086/interest
 ##忽略权限拦截
 #      management:
 #        security:
