@@ -1,5 +1,5 @@
 server:
-  port: 8080
+  port: 8086
   servlet:
     context-path: /interest
 spring:
@@ -37,7 +37,7 @@ mybatis:
   type-aliases-package: com.interest.model
 
 logging:
-  file: D:/interest/file/log/interest.log
+  file: /var/tomcat-file
   level:
     org.springframework.web: DEBUG
     org.springframework.security: DEBUG
@@ -47,9 +47,9 @@ logging:
 interest:
   properties:
     paths-properties:
-      image: D:/interest/file/image
-#      domain-name: http://www.lovemtt.com/interest
-      domain-name: http://127.0.0.1:8080/interest
+      image: /var/tomcat-file
+      domain-name: http://interest-web.iliuqi.top/
+#      domain-name: http://127.0.0.1:8080/interest
 github:
   client-id: 你在github中注册的client id
   client-secret: 你在github中注册的client secret
