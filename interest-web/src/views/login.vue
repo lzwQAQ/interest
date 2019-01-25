@@ -111,7 +111,7 @@
                                         </li>
                                         
                                         <li>
-                                            <a href="https://graph.qq.com/oauth2.0/authorize?response_type=code&client_id=101512648&redirect_uri=http://www.lovemtt.com/qq&state=qq" style="{right: 26px;}">
+                                            <a href="https://graph.qq.com/oauth2.0/authorize?response_type=code&client_id=101512648&redirect_uri=http://interest-web.iliuqi.top/qq&state=qq" style="{right: 26px;}">
                                                 <img class="icon" src="../images/social-qq.svg" />  
                                             </a>
                                         </li>
