@@ -12,6 +12,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.interest.service.UserService;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service(value = "userServiceImpl")
 public class UserServiceImpl implements UserService {
@@ -38,13 +39,13 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public List<UserEntity> usersList(String loginName, int pageSize, int start) {
-		return userDao.usersList( loginName,  pageSize,  start);
+	public List<UserEntity> usersList(String name, int pageSize, int start) {
+		return userDao.usersList( name,  pageSize,  start);
 	}
 
 	@Override
-	public Integer usersSize(String loginName, int pageSize, int start) {
-		return userDao.usersSize(loginName, pageSize, start);
+	public Integer usersSize(String name, int pageSize, int start) {
+		return userDao.usersSize(name, pageSize, start);
 	}
 
 	@Override
@@ -76,6 +77,7 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
+	@Transactional
 	public void updateUsertype(UserEntity userEntity) {
 		if(userEntity.getUsertype() == 0) {
 			relationDao.delById(userEntity.getId());
@@ -87,7 +89,13 @@ public class UserServiceImpl implements UserService {
 			list.add(relationEntity);
 			relationDao.insertRelations(list);
 		}
-		userDao.updateUsertype(userEntity.getLoginName(),userEntity.getUsertype());
+		//userDao.updateUsertype(userEntity.getLoginName(),userEntity.getUsertype());
+		userDao.updateUsertypeById(userEntity.getId(),userEntity.getUsertype());
+	}
+
+	@Override
+	public UserEntity getEntityById(int userid) {
+		return userDao.getUserEntityById(userid);
 	}
 
 }

@@ -11,13 +11,15 @@
 		<result column="headimg" property="headimg" />
 		<result column="url" property="url" />
 		<result column="create_time" property="createTime" />
+		<result column="githubid" property="githubid" />
+		<result column="qqid" property="qqid" />
 	</resultMap>
 	<!-- 获取user列表 -->
 	<select id="usersList" resultMap="userMap">
 	<![CDATA[select * from sys_user]]>
 		<where>
-			<if test="loginName != null and loginName != ''">
-				login_name = #{loginName}
+			<if test="name != null and name != ''">
+				name = #{name}
 			</if>
 		</where>
 	    <![CDATA[ order by id desc ]]>
@@ -29,8 +31,8 @@
 	<select id="usersSize" resultType="Integer">  
 	    <![CDATA[select count(*) from sys_user]]>
 		<where>
-			<if test="loginName != null and loginName != ''">
-				login_name = #{loginName}
+			<if test="name != null and name != ''">
+				name = #{name}
 			</if>
 		</where>
 	</select>
@@ -76,9 +78,9 @@
 				   order="AFTER">
 			select LAST_INSERT_ID()
 		</selectKey>
-		insert into sys_user (login_name,email,usertype,headimg,url,create_time)
+		insert into sys_user (name,email,usertype,headimg,url,create_time,githubid)
 		values
-		(#{loginName},#{email},#{usertype},#{headimg},#{url},#{createTime})
+		(#{name},#{email},#{usertype},#{headimg},#{url},#{createTime},#{githubid})
 	</insert>
 	<!-- 更新用户信息 -->
 	<update id="updateUser" parameterType="UserEntity">
@@ -100,6 +102,14 @@
 			login_name = #{loginName}
 		</where>
 	</update>
+
+	<update id="updateUsertypeById">
+		update sys_user set
+		usertype = #{usertype}
+		<where>
+			id = #{id}
+		</where>
+	</update>
 	<!-- 删除用户信息 -->
 	<delete id="deleteUsers">
 		delete from sys_user
@@ -119,4 +129,33 @@
 			id = #{id}
 		</where>
 	</select>
+
+	<select id="getEntityByGithubid" resultMap="userMap">
+		select * from sys_user
+		<where>
+			githubid = #{githubid}
+		</where>
+	</select>
+
+	<select id="getEntityByQqid" resultMap="userMap">
+		select * from sys_user
+		<where>
+			qqid = #{qqid}
+		</where>
+	</select>
+
+	<insert id="insertUserByQq" parameterType="UserEntity">
+		<selectKey keyProperty="id" resultType="java.lang.Integer"
+				   order="AFTER">
+			select LAST_INSERT_ID()
+		</selectKey>
+		insert into sys_user (name,usertype,headimg,create_time,qqid)
+		values
+		(#{name},#{usertype},#{headimg},#{createTime},#{qqid})
+	</insert>
+
+    <select id="getALl" resultMap="userMap">
+        select * from sys_user
+    </select>
+
 </mapper>

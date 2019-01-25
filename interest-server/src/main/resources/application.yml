@@ -1,20 +1,30 @@
 server:
-  port: 8086
+  port: 8080
   servlet:
     context-path: /interest
 spring:
   datasource:
-    driver-class-name: com.mysql.jdbc.Driver
-    #本地数据库47.95.193.234
-    url: jdbc:mysql://localhost:3306/interest?useUnicode=true&characterEncoding=UTF-8&amp;useSSL=false&amp;jdbcCompliantTruncation=false&amp;zeroDateTimeBehavior=convertToNull
+    url: jdbc:mysql://47.95.193.234:3306/interest_new?useUnicode=true&characterEncoding=UTF-8&useSSL=false&jdbcCompliantTruncation=false&zeroDateTimeBehavior=convertToNull
     username: root
     password: zai@1234
+    hikari:
+      minimum-idle: 5
+      maximum-pool-size: 15
+      connection-test-query: SELECT 1
+      max-lifetime: 1800000
+      connection-timeout: 30000
+      pool-name: DatebookHikariCP
   redis:
-    #本地redis
-    database: 4
+    database: 0
     host: 127.0.0.1
     port: 6379
     password: null
+    timeout: 5000ms
+    jedis:
+      pool:
+        max-active: 100
+        max-idle: 10
+        max-wait: 100000ms
   resources:
       static-locations:
       - classpath:/META-INF/resources/
@@ -26,9 +36,8 @@ mybatis:
   mapper-locations: classpath:mybatis/mapper/*.xml
   type-aliases-package: com.interest.model
 
-#D:/interest/file/log/interest.log
 logging:
-  file: /var/interest/log/interest.log
+  file: D:/interest/file/log/interest.log
   level:
     org.springframework.web: DEBUG
     org.springframework.security: DEBUG
@@ -38,10 +47,12 @@ logging:
 interest:
   properties:
     paths-properties:
-      image: /var/tomcat-file/
+      image: D:/interest/file/image
 #      domain-name: http://www.lovemtt.com/interest
-      domain-name: http://127.0.0.1:8086/interest
-##忽略权限拦截
-#      management:
-#        security:
-#          enabled: false
+      domain-name: http://127.0.0.1:8080/interest
+github:
+  client-id: 你在github中注册的client id
+  client-secret: 你在github中注册的client secret
+qq:
+  appid: 你在qq中注册的appid
+  appkey: 你在qq中注册的appkey
