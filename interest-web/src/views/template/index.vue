@@ -88,7 +88,7 @@
                             <Input v-model="searchValue" icon="android-search" placeholder="Enter something..."
                                    @on-enter="search()" />
                         </div>
-                        <div class="layout-logo-left">
+                        <div class="layout-logo">
                             <!--<video ishivideo="true" autoplay="true" isrotate="false" autoHide="true">
                                 <source src="http://www.html5videoplayer.net/videos/madagascar3.mp4" type="video/mp4">
                             </video>-->
@@ -112,7 +112,7 @@
                             </MenuItem>
                             <MenuItem name="4" v-if="consoleFlag">
                                 <Icon type="md-settings"></Icon>
-                                控制台1
+                                控制台
                             </MenuItem>
                         </div>
                         <div  type="success" class="avatar-badge-wrapper" @click="toMessages">
