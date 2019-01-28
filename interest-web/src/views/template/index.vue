@@ -83,9 +83,20 @@
                                 <img src="../../images/logo.jpg" style="width: 50px;height: 50px;" align="absmiddle" />
                             </a>
                         </div>
+
                         <div class="layout-search">
                             <Input v-model="searchValue" icon="android-search" placeholder="Enter something..."
                                    @on-enter="search()" />
+                        </div>
+                        <div class="layout-logo-left">
+                            <!--<video ishivideo="true" autoplay="true" isrotate="false" autoHide="true">
+                                <source src="http://www.html5videoplayer.net/videos/madagascar3.mp4" type="video/mp4">
+                            </video>-->
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <audio id="html5media" controls="controls" controlslist="nodownload" autoplay="autoplay" loop="loop" >
+                                <source src="../../audio/soul.mp3" type="audio/mpeg" />
+                            </audio>
+                            <!--http://music.163.com/song/media/outer/url?id=1325897621-->
                         </div>
                         <div v-if="loginFlag" class="layout-nav">
                             <MenuItem name="1">
@@ -101,7 +112,7 @@
                             </MenuItem>
                             <MenuItem name="4" v-if="consoleFlag">
                                 <Icon type="md-settings"></Icon>
-                                控制台
+                                控制台1
                             </MenuItem>
                         </div>
                         <div  type="success" class="avatar-badge-wrapper" @click="toMessages">

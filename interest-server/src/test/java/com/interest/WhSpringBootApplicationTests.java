@@ -36,7 +36,6 @@ public class WhSpringBootApplicationTests {
 
     @Test
     public void testRedis(){
-
 		List<UserEntity> list = userDao.getALl();
 		for (UserEntity userEntity:list){
 			UserGithubEntity userGithubEntity = new UserGithubEntity();

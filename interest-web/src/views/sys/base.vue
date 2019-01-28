@@ -134,7 +134,7 @@
                     <router-view></router-view>
                 </div>
                 <div class="layout-copy">
-                    2018-2020 &copy; smallsail-wh
+                    2018-2020 &copy; zai
                 </div>
             </Col>
         </Row>

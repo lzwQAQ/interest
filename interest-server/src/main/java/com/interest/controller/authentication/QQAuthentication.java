@@ -56,7 +56,7 @@ public class QQAuthentication implements MyAuthentication {
 
         /* 获取access_token */
         String tokenUrl = QQ_ACCESSS_TOKEN_URL + "?grant_type=authorization_code&client_id=" + appid +
-                "&client_secret=" + appkey + "&code=" + code + "&redirect_uri=http://www.lovemtt.com/qq";
+                "&client_secret=" + appkey + "&code=" + code + "&redirect_uri=http://interest-web.iliuqi.top/qq";
         ResponseEntity<String> responseEntity = restTemplate.getForEntity(tokenUrl, String.class);
         String message = responseEntity.getBody().trim();
         String access_token = message.split("&")[0].split("=")[1];
